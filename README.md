@@ -4,8 +4,6 @@
 
 For the Drata take home challenge coding interview. Implements a REST API for book and author entities using OpenAPI, TypeORM, and MySQL.
 
-###-Tony Bentley
-
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
