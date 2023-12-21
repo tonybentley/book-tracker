@@ -1,4 +1,13 @@
 <p align="center">
+<img src="https://images.drata.com/x3hoqyjm3c27/KGLjH0qbRqmQ3Y3YVlSgB/2bb6cb13b1c98c0bff90931cdb332922/drata-wordmark-black.svg">
+</p>
+
+For the Drata take home challenge coding interview. Implements a REST API for book and author entities using OpenAPI, TypeORM, and MySQL.
+
+###-Tony Bentley
+
+
+<p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
@@ -32,6 +41,11 @@
 $ npm install
 ```
 
+```bash
+# run the mysql container
+$ docker compose up
+```
+
 ## Running the app
 
 ```bash
@@ -43,7 +57,11 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
 ```
+## Swagger UI
+
+Navigate to http://localhost:3000/api
 
 ## Test
 

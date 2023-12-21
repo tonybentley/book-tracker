@@ -38,8 +38,6 @@ describe('CRUD on book and author', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    app.useLogger(console);
-
     authorRepository = moduleFixture.get('AUTHOR_REPOSITORY');
     bookRepository = moduleFixture.get('BOOK_REPOSITORY');
     db = moduleFixture.get('DATA_SOURCE');
