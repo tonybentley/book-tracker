@@ -69,6 +69,7 @@ describe('BookService', () => {
 
   it('should update a book', async () => {
     const bookId = 1;
+    const whereClause = { where: { id: bookId } };
     const updateBookDto: UpdateBookDto = {
       title: 'Updated Title',
       pageCount: 300,
@@ -86,7 +87,7 @@ describe('BookService', () => {
 
     const result = await service.update(bookId, updateBookDto);
 
-    expect(bookRepository.findOne).toHaveBeenCalledWith(bookId);
+    expect(bookRepository.findOne).toHaveBeenCalledWith(whereClause);
     expect(result).toEqual(updatedBook);
   });
 });
