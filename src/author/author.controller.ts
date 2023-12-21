@@ -1,7 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AuthorService } from './author.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
+import { ApiQuery } from '@nestjs/swagger';
+import { PaginationOptions } from '../interfaces/pagination.interface';
+import { Query } from '@nestjs/common';
 
 @Controller('author')
 export class AuthorController {
@@ -12,9 +23,28 @@ export class AuthorController {
     return this.authorService.create(createAuthorDto);
   }
 
+  @ApiQuery({
+    name: 'page',
+    type: String,
+    description: 'Optional start number',
+    required: false,
+  })
+  @ApiQuery({
+    name: 'limit',
+    type: String,
+    description: 'Optional limit of pages',
+    required: false,
+  })
   @Get()
-  findAll() {
-    return this.authorService.findAll();
+  findAll(
+    @Query('page') page: number | null,
+    @Query('limit') limit: number | null,
+  ) {
+    const paginationOptions: PaginationOptions = {
+      page: page || 1,
+      limit: limit || 10,
+    };
+    return this.authorService.findAll(paginationOptions);
   }
 
   @Get(':id')

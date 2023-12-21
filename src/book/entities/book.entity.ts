@@ -6,8 +6,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
 import { Author } from '../../author/entities/author.entity';
+
 @Entity()
 export class Book {
   @PrimaryGeneratedColumn()
