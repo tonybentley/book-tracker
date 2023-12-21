@@ -83,7 +83,10 @@ describe('BookService', () => {
     };
     bookRepository.findOne = jest.fn().mockResolvedValue(book);
     bookRepository.save = jest.fn().mockResolvedValue(updatedBook);
+
     const result = await service.update(bookId, updateBookDto);
+
+    expect(bookRepository.findOne).toHaveBeenCalledWith(bookId);
     expect(result).toEqual(updatedBook);
   });
 });
